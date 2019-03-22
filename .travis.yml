@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t migot01/docker-react Dockerfile.dev .
+
+script:
+  - docker run migot01/docker-react npm run test -- --coverage
+    
